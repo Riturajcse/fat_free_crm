@@ -20,4 +20,4 @@ build:
     - sh -c "if [ \"$DB\" = 'mysql' ]; then mysql -e 'create database fat_free_crm_test;'; fi"
     - sh -c "RAILS_ENV=test bundle exec rake db:schema:load"
     - "export DISPLAY=:99.0"
-    - "RAILS_ENV=test bundle exec rake"
+    - "RAILS_ENV=test bundle exec rspec --format documentation"
