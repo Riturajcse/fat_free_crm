@@ -15,9 +15,12 @@ build:
   ci:
     - apt-get install imagemagick
     - "RAILS_ENV=test bundle install"
+    - mkdir -p shippable/codecoverage
     - sh -c "cp config/database.$DB.yml config/database.yml"
     - sh -c "if [ \"$DB\" = 'postgres' ]; then psql -c 'create database fat_free_crm_test;' -U postgres; fi"
     - sh -c "if [ \"$DB\" = 'mysql' ]; then mysql -e 'create database fat_free_crm_test;'; fi"
     - sh -c "RAILS_ENV=test bundle exec rake db:schema:load"
     - "export DISPLAY=:99.0"
     - "RAILS_ENV=test bundle exec rspec --format documentation"
+    - ls coverage
+    - cp coverage/index.xml shippable/codecoverage/coverage.xml 
