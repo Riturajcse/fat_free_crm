@@ -67,6 +67,7 @@ group :test do
   gem "acts_as_fu"
   gem 'zeus' unless ENV["CI"]
   gem 'timecop'
+  gem 'simplecov'
 end
 
 group :heroku do
