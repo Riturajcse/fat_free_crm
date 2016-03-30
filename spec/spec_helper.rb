@@ -7,6 +7,8 @@ require 'rubygems'
 
 ENV["RAILS_ENV"] = 'test'
 require File.expand_path("../../config/environment", __FILE__)
+require 'simplecov'
+SimpleCov.start
 require 'rspec/rails'
 require 'capybara/rails'
 require 'paper_trail/frameworks/rspec'
