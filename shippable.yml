@@ -23,4 +23,4 @@ build:
     - "export DISPLAY=:99.0"
     - "RAILS_ENV=test bundle exec rspec --format documentation"
     - ls coverage
-    - cp coverage/index.xml shippable/codecoverage/coverage.xml 
+    - cp coverage/coverage.xml shippable/codecoverage/coverage.xml 
