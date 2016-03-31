@@ -12,9 +12,12 @@ services:
   - selenium
 
 build:
+  cache: true
+  cache_dir_list:
+    - $SHIPPABLE_BUILD_DIR/vendor/bundle
   ci:
     - apt-get install imagemagick
-    - "RAILS_ENV=test bundle install"
+    - "RAILS_ENV=test bundle install --path vendor/bundle"
     - mkdir -p shippable/codecoverage
     - sh -c "cp config/database.$DB.yml config/database.yml"
     - sh -c "if [ \"$DB\" = 'postgres' ]; then psql -c 'create database fat_free_crm_test;' -U postgres; fi"
